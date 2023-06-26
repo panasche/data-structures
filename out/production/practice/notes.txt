@@ -1,0 +1,25 @@
+[10 11 13]
+[11 19 20]
+[24 27 29]  increasing across row and down the column...
+
+if element == target... return element
+if element < target... search right & down (row++)
+if element > target... search left & up (col--)
+
+[1   2  3  4]
+[5   6  7  8]
+[9  10 11 12]
+[13 14 15 16] sorted matrix
+
+if element == target... return element
+if element < target... (row++, col++)
+if element > target... (row--, col--)
+
+[4,3,2,-1],
+[3,2,1,-1],
+[1,1,-1,-2],
+[-1,-1,-2,-3]
+//ABCCED
+[A B C E]
+[S F C S]
+[A D E E]
