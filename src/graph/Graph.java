@@ -1,16 +1,18 @@
 package graph;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class Graph {
     int vertices;
-    ArrayList<ArrayList<Integer>> adjList;
+    Map<Integer, LinkedList<Integer>> adjList;
 
     Graph(int x) {
         this.vertices = x;
-        adjList = new ArrayList<>(x);
-        for (int i = 0; i <= x; i++) {
-            adjList.add(new ArrayList<Integer>());
+        adjList = new HashMap<>();
+        for (int i = 1; i <= x; i++) {
+            adjList.put(i, new LinkedList<>());
         }
     }
     void addEdge(int src, int dst) {
@@ -18,10 +20,13 @@ public class Graph {
         adjList.get(dst).add(src);
     }
     void printGraph() {
-        for (int i = 1; i <= vertices; i++) {
-            System.out.print(i + " : ");
-            for (int j = 0; j < adjList.get(i).size(); j++) {
-                System.out.print(adjList.get(i).get(j) + " ");
+        for (int vertex : adjList.keySet()) {
+            System.out.print(vertex + " : ");
+            for (int neighbour : adjList.get(vertex)) {
+                System.out.print(neighbour + " ");
+                if (! (adjList.get(vertex).indexOf(neighbour) == adjList.get(vertex).size()-1)) {
+                    System.out.print("--> ");
+                }
             }
             System.out.println();
         }
